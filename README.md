@@ -1,4 +1,4 @@
-# Tims Beacon Service
+# Tims Beacon Service v1.5.3
 **Tims Beacon-Service keeps track of all your computers (uptime, cpu-temperature, IPs, last time seen, uptime of system, etc.).**
 
 It is especially helpful for **Raspberry PIs** when you don't have a screen attached.
@@ -37,19 +37,21 @@ Installation on Client
 
 `0 * * * * bash sendBeacon.sh`
 
-Additional Functions
+Payloads
 -------------
 * You can send payloads (any String) with the beacons
 
-**_Note:_** In case you don't have _curl_ on your device (for example on some minimal _OpenWRT Routers_) you can replace it in the Bash-File with **http PUT** instead. The package needed to be install in openWrt is called **httpie**.
+help - I have no curl
+---------------------
+In case you don't have _curl_ on your device (for example on some minimal _OpenWRT Routers_) you can replace it in the Bash-File with **http PUT** instead. The package needed to be install in openWrt is called **httpie**.
 
-`http PUT https://YOURSERVER/hey_v2.php whois=DEVICENAME`
+`http PUT https://YOURSERVER/hey.php whois=DEVICENAME`
 
 Project details
 -------------
 Author: Tim Lüdtke (https://timluedtke.de)
 
-Version 1.5.2 (Aug 2021)
+Version 1.5.3 (Aug 2021)
 
 Graphics
 ----
