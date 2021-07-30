@@ -1,124 +1,125 @@
 <?php
 include("db_connection.php");
-$version = "v1.5.1";
+$version = "v1.5.2";
 ?>
-  <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Beacon Service of timluedtke.de</title>
-    <style>
-      body {
-        text-align: center;
-        font: normal 12px/150% Arial, Helvetica, sans-serif;
-      }
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex"/>
+        <title><?php echo "Tims Beacon Service " . $version; ?></title>
+        <style>
+            body {
+                text-align: center;
+                font: normal 12px/150% Arial, Helvetica, sans-serif;
+            }
 
-      .datagrid table {
-        border-collapse: collapse;
-        text-align: center;
-        width: 100%;
-      }
+            .datagrid table {
+                border-collapse: collapse;
+                text-align: center;
+                width: 100%;
+            }
 
-      .datagrid {
-        margin-right: auto;
-        margin-left: auto;
-        width: 1000px;
-        font: normal 12px/150% Arial, Helvetica, sans-serif;
-        background: #fff;
-        overflow: hidden;
-        border: 1px solid #006699;
-        -webkit-border-radius: 11px;
-        -moz-border-radius: 11px;
-        border-radius: 11px;
-      }
+            .datagrid {
+                margin-right: auto;
+                margin-left: auto;
+                width: 1000px;
+                font: normal 12px/150% Arial, Helvetica, sans-serif;
+                background: #fff;
+                overflow: hidden;
+                border: 1px solid #006699;
+                -webkit-border-radius: 11px;
+                -moz-border-radius: 11px;
+                border-radius: 11px;
+            }
 
-      .datagrid table td, .datagrid table th {
-        padding: 15px 15px;
-      }
+            .datagrid table td, .datagrid table th {
+                padding: 15px 15px;
+            }
 
-      .datagrid table thead th {
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F));
-        background: -moz-linear-gradient(center top, #006699 5%, #00557F 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
-        background-color: #006699;
-        color: #FFFFFF;
-        font-size: 15px;
-        font-weight: bold;
-        border-left: 1px solid #0070A8;
-      }
+            .datagrid table thead th {
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F));
+                background: -moz-linear-gradient(center top, #006699 5%, #00557F 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
+                background-color: #006699;
+                color: #FFFFFF;
+                font-size: 15px;
+                font-weight: bold;
+                border-left: 1px solid #0070A8;
+            }
 
-      .datagrid table thead th:first-child {
-        border: none;
-      }
+            .datagrid table thead th:first-child {
+                border: none;
+            }
 
-      .datagrid table tbody td {
-        color: #00496B;
-        border-left: 1px solid #E1EEF4;
-        font-size: 14px;
-        font-weight: normal;
-      }
+            .datagrid table tbody td {
+                color: #00496B;
+                border-left: 1px solid #E1EEF4;
+                font-size: 14px;
+                font-weight: normal;
+            }
 
-      .datagrid table tbody .alt td {
-        background: #E1EEF4;
-        color: #00496B;
-      }
+            .datagrid table tbody .alt td {
+                background: #E1EEF4;
+                color: #00496B;
+            }
 
-      .datagrid table tbody .break td {
-        border-top: 4px #13364a double;
-      }
+            .datagrid table tbody .break td {
+                border-top: 4px #13364a double;
+            }
 
-      .datagrid table tbody td:first-child {
-        border-left: none;
-      }
+            .datagrid table tbody td:first-child {
+                border-left: none;
+            }
 
-      .datagrid table tbody tr:last-child td {
-        border-bottom: none;
-      }
+            .datagrid table tbody tr:last-child td {
+                border-bottom: none;
+            }
 
-      .tooltip {
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px dotted black;
-      }
+            .tooltip {
+                position: relative;
+                display: inline-block;
+                border-bottom: 1px dotted black;
+            }
 
-      .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 120px;
+                background-color: black;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 5px 0;
 
-        /* Position the tooltip */
-        position: absolute;
-        z-index: 1;
-      }
+                /* Position the tooltip */
+                position: absolute;
+                z-index: 1;
+            }
 
-      .tooltip:hover .tooltiptext {
-        visibility: visible;
-      }
-    </style>
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+            }
+        </style>
 
-  </head>
-  <body>
-  <div style="margin-bottom:10px">
-    <img src="Beacon_ballonicon2.svg" alt="beacon" height="120px" width="120px">
-    <!-- CC-BY-3.0 author: pixelbuddha @ https://commons.wikimedia.org/wiki/File%3ABeacon_ballonicon2.svg -->
-  </div>
-  <div class="datagrid">
-    <table>
-      <thead>
-      <tr>
-        <th>Device</th>
-        <th>last Seen</th>
-        <th>external IP</th>
-        <th>internal IP</th>
-        <th>Temparture</th>
-        <th>Uptime</th>
-        <th>Payload</th>
-      </tr>
-      </thead>
-      <tbody>
+    </head>
+    <body>
+    <div style="margin-bottom:10px">
+        <img src="Beacon_ballonicon2.svg" alt="beacon" height="120px" width="120px">
+        <!-- CC-BY-3.0 author: pixelbuddha @ https://commons.wikimedia.org/wiki/File%3ABeacon_ballonicon2.svg -->
+    </div>
+    <div class="datagrid">
+        <table>
+            <thead>
+            <tr>
+                <th>Device</th>
+                <th>last Seen</th>
+                <th>external IP</th>
+                <th>internal IP</th>
+                <th>Temparture</th>
+                <th>Uptime</th>
+                <th>Payload</th>
+            </tr>
+            </thead>
+            <tbody>
 <?php
 $alternatingRowNow = false;
 $hasBreakLineBeenUsed = false;
@@ -173,7 +174,7 @@ function timestampToDuration($timestamp)
 
 function surpressStupidValues($value)
 {
-    if ("" == $value OR "NULL" == $value OR "up" == $value OR "\"\"" == $value) {
+    if ("" == $value or "NULL" == $value or "up" == $value or "\"\"" == $value) {
         return "";
     }
     return $value;
@@ -188,7 +189,7 @@ function longerThanLimit($datetime_text)
 
 function formatTemperature($tempString)
 {
-    if ("" == $tempString OR "NULL" == $tempString) {
+    if ("" == $tempString or "NULL" == $tempString) {
         return "";
     }
     return $tempString . " °C";

@@ -17,8 +17,13 @@ Server Requirements
 
 Installation on Server
 ------------
-1. Copy all files from **/serverFiles** to your server directory. Make sure you copied .htaccess & .htpasswd as well to ensure nobody except you can view their vulnurable information.
-2. Enter your MySQL DB Credentials into **db_connection.php**.
+1. Copy all files from **/serverFiles** to your server directory.
+   
+2. Security: **Make sure** you copied .htaccess & .htpasswd and as well inserted your credentials to ensure nobody except you can view your vulnurable information. Without this files everyone could access your Beacon-Information-Page!
+   
+If you want you can use a .htpasswd-generator to create your .htaccess & .htpasswd files. For example this one: https://www.askapache.com/online-tools/htpasswd-generator/
+
+2. Enter your **MySQL DB Credentials** into **db_connection.php**.
 3. Use the */serverFiles/createTable.sql* on your DB to create initale Table-Structure
 4. Open https://YOURSERVER/lastKnownIp.php to view the data send by the clients.
 
@@ -44,7 +49,7 @@ Project details
 -------------
 Author: Tim Lüdtke (https://timluedtke.de)
 
-Version 1.5.1 (Aug 2021)
+Version 1.5.2 (Aug 2021)
 
 Graphics
 ----
