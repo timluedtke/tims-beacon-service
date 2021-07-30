@@ -26,9 +26,9 @@ Installation on Server
 Installation on Client
 ------------
 1. Just copy the **/clientFiles/sendBeacon.sh** to your Clients home folder
-2. Change the **deviceName** Variable in the sendBeacon.sh
+2. Change the **deviceName** Variable & the serveradress in the sendBeacon.sh
 3. Make sure *sendBeacon.sh* is executable: **chmod +x sendBeacon.sh**
-4. Add the following line to your crontab (type **crontab -e** in your console):
+4. Add the following line to your crontab (type **crontab -e** in your console) this will call the script every minute:
 
 `0 * * * * bash sendBeacon.sh`
 
@@ -44,8 +44,7 @@ Project details
 -------------
 Author: Tim Lüdtke (https://timluedtke.de)
 
-Version 1.5 (Aug 2021)
-
+Version 1.5.1 (Aug 2021)
 
 Graphics
 ----

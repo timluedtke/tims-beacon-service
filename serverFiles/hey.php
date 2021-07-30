@@ -1,15 +1,38 @@
 <?php
-$version = "1.1";
 include("db_connection.php");
 
-$whois = mysqli_real_escape_string($dbConnection, trim($_GET['whois']));
 $ipaddress = $_SERVER['REMOTE_ADDR'];
-$payload = substr(trim($_GET['payload']), 0, 250);
-$payload = empty($payload) ? "NULL" : mysqli_real_escape_string($dbConnection, $payload);
+$whois = processInputValue($_GET['whois'], $dbConnection);
+$cpuTemp = processInputValue($_GET['cputemp'], $dbConnection);
+$privateip = processInputValue($_GET['privateip'], $dbConnection);
+$uptime = processInputValue($_GET['uptime'], $dbConnection);
+$payload = processInputValue($_GET['payload'], $dbConnection);
 
-$query_for_inserting = "INSERT INTO `beacons` (`b_devicename`, `b_ip`, `b_cputemp`) VALUES ('" . $whois . "','" . $ipaddress . "','" . $payload . "');";
+if ($whois == "NULL") {
+    return;
+}
+
+if ($payload == "" or $payload == "test" or $payload == "none" or $payload == "NULL") {
+    $query_for_inserting = "INSERT INTO `beacons` (`b_devicename`, `b_ip`, `b_privateip`, `b_cputemp`, `b_uptime`) VALUES ('" . $whois . "','" . $ipaddress . "','" . $privateip . "','" . $cpuTemp . "','" . $uptime . "');";
+} else {
+    $query_for_inserting = "INSERT INTO `beacons` (`b_devicename`, `b_ip`, `b_privateip`, `b_cputemp`, `b_uptime`, `b_payload`) VALUES ('" . $whois . "','" . $ipaddress . "','" . $privateip . "','" . $cpuTemp . "','" . $uptime . "','" . $payload . "');";
+}
 saveQuery($dbConnection, $query_for_inserting);
 $dbConnection->close();
+
+function processInputValue($inputValue, $dbConnection)
+{
+    return nullOrEscaped(substr(trim($inputValue), 0, 250), $dbConnection);
+}
+
+function nullOrEscaped($value, $dbConnection)
+{
+    if (empty($value)) {
+        return null;
+    } else {
+        return mysqli_real_escape_string($dbConnection, $value);
+    }
+}
 
 function saveQuery($dbConnection, $query_for_inserting)
 {
@@ -21,4 +44,5 @@ function saveQuery($dbConnection, $query_for_inserting)
         http_response_code(418);
     }
 }
+
 ?>
