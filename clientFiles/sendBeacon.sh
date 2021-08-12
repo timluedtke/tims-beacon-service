@@ -1,5 +1,5 @@
 #!/bin/bash
-#add this script to the crontab (via crontab -e): 0 * * * * bash sendBeacon.sh
+#add this script to the crontab (via crontab -e): * * * * * bash sendBeacon.sh
 deviceName="DEVICENAME"
 
 ## CPU TEMPERATURE READOUT FOR >>RASPBERRY PIs<< !
@@ -14,7 +14,7 @@ theuptime=$(cat /proc/stat | grep btime | awk '{ print $2 }')
 payload="" ## if you wand to send additional data e.g.: $(python ~/Adafruit_Python_DHT/examples/dht22.py)
 
 curl -G "https://yourserver.com/beacon/hey.php" \
-    --data whois=$deviceName \
+    --data whois="$deviceName" \
     --data cputemp="$cpuTemp" \
     --data privateip="$privateip" \
     --data uptime="$theuptime" \

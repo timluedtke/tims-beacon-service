@@ -35,7 +35,7 @@ Installation on Client
 3. Make sure *sendBeacon.sh* is executable: **chmod +x sendBeacon.sh**
 4. Add the following line to your crontab (type **crontab -e** in your console) this will call the script every minute:
 
-`0 * * * * bash sendBeacon.sh`
+`* * * * * bash sendBeacon.sh`
 
 Payloads
 -------------
