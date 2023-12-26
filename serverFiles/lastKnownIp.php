@@ -7,6 +7,7 @@ $version = "v1.5.3";
         <meta charset="utf-8">
         <meta name="robots" content="noindex"/>
         <title><?php echo "Tims Beacon Service " . $version; ?></title>
+        <link rel="icon" type="image/x-icon" href="Beacon_ballonicon2.svg">
         <style>
             body {
                 text-align: center;
