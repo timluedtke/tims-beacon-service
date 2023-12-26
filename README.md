@@ -21,11 +21,11 @@ Installation on Server
    
 2. Security: **Make sure** you copied .htaccess & .htpasswd and as well inserted your credentials to ensure nobody except you can view your vulnurable information. Without this files everyone could access your Beacon-Information-Page!
    
-If you want you can use a .htpasswd-generator to create your .htaccess & .htpasswd files. For example this one: https://www.askapache.com/online-tools/htpasswd-generator/
+If you want you can use a .htpasswd-generator to create your .htaccess & .htpasswd files. For example you can use this one: https://www.askapache.com/online-tools/htpasswd-generator/
 
-2. Enter your **MySQL DB Credentials** into **db_connection.php**.
-3. Use the */serverFiles/createTable.sql* on your DB to create initale Table-Structure
-4. Open https://YOURSERVER/lastKnownIp.php to view the data send by the clients.
+3. Enter your **MySQL DB Credentials** into **db_connection.php**.
+4. Use the */serverFiles/createTable.sql* on your DB to create initale Table-Structure
+5. Open https://YOURSERVER/lastKnownIp.php to view the data send by the clients.
 
 
 Installation on Client
