@@ -1,6 +1,6 @@
 <?php
 include("db_connection.php");
-$version = "v1.5.3";
+$version = "v1.5.4";
 ?>
     <html>
     <head>
