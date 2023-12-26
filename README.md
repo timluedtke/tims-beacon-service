@@ -1,4 +1,4 @@
-# Tims Beacon Service v1.5.3
+# Tims Beacon Service v1.5.4
 **Tims Beacon-Service keeps track of all your computers (uptime, cpu-temperature, IPs, last time seen, uptime of system, etc.).**
 
 It is especially helpful for **Raspberry PIs** when you don't have a screen attached.
@@ -51,7 +51,7 @@ Project details
 -------------
 Author: Tim Lüdtke (https://timluedtke.de)
 
-Version 1.5.3 (Aug 2021)
+Version 1.5.4 (Dez 2023)
 
 Graphics
 ----
