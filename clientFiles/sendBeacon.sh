@@ -3,7 +3,7 @@
 deviceName="DEVICENAME"
 
 ## CPU TEMPERATURE READOUT FOR >>RASPBERRY PIs<< !
-raspiTemp=$(/opt/vc/bin/vcgencmd measure_temp)
+raspiTemp=$(vcgencmd measure_temp)
 cpuTemp=${raspiTemp:5:4}
 
 ## CPU TEMPERATURE READOUT FOR >>linux computers (eg. ubuntu)<< !
